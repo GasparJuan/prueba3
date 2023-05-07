@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de preguntas</title>
+    <link rel="stylesheet" href="CSS.css">
+</head>
+<body>
+    <h1> Bienvenidos a Pulsá y Ganá </h1>
+    <button class="comenzar" onclick="comenzar()"> COMENZAR </button>
+    <button class="reiniciar" onclick="reiniciarWeb()"> REINICIAR </button>
+    <h3> A continuación tendras 30 secundos para responder las siguientes preguntas </h3>
+    <h3> El reloj se mostrara AQUI ABAJO</h3>
+    <h2 id="textoContador"></h2>
+    <h3> CINE </h3>
+    <p> <strong> ¿Cuantas peliculas componen la saga Karate Kid hasta el dia de la fecha? </strong> </p>
+    <input id="uno" type="text">
+    <H3> DEPORTES </H3>
+     <p> <strong> ¿En que equipo se retiró Manu Ginobilli? </strong> </p>
+    <input id="dos" type="text">
+    <H3> DEPORTES </H3>
+     <p> <strong> ¿Cuantas copas del mundo tiene Brasil? </strong> </p>
+    <input id="tres" type="text">
+    <H3>SERIES</H3>
+     <p> <strong> ¿cuantas temporadas tiene la serie Lost? </strong> </p>
+    <input id="cuatro" type="text">
+    <H3>VIDEOJUEGOS</H3>
+     <p> <strong> ¿Qué quiere decir la sigla lol, del famoso videojuego de Riot Games? </strong> </p>
+    <input id="cinco" type="text">
+    <br>
+    <br>
+    <button class="enviar" onclick="respuestas()"> Enviar respuestas </button>
+    <br>
+    <br>
+    <br>
+    <audio id="audioPerdiste" src="sonido/trompeta.mp3"> </audio>
+    
+    
+
+    <script>
+
+        let respuesta1=document.getElementById ('uno') ;
+        let respuesta2=document.getElementById ('dos') ;
+        let respuesta3=document.getElementById ('tres') ;
+        let respuesta4=document.getElementById ('cuatro') ;
+        let respuesta5=document.getElementById ('cinco') ;
+        let tiempoTerminado
+        let intervaloDeTiempo
+
+
+        function comenzar() {
+            tiempoTerminado = setTimeout(tiempoCumplido, 1000 * 30);
+            intervaloDeTiempo = setInterval(ticTac, 1000);
+
+            document.getElementById('textoContador').textContent = 30;
+        }
+
+        function ticTac(){
+           let tiempo= document.getElementById ('textoContador').textContent;
+           document.getElementById ('textoContador').textContent = tiempo - 1;
+        }
+
+        function tiempoCumplido() {
+            clearInterval(intervaloDeTiempo);
+            alert("GAMEOVER");
+            document.getElementById ('textoContador').textContent = 0;
+            document.getElementById ('audioPerdiste').play() 
+        }
+
+        function reiniciarWeb(){
+            location.reload()
+        }
+        function respuestas(){
+            let respuesta1=document.getElementById ('uno').value ;
+            let respuesta2=document.getElementById ('dos').value ;
+            let respuesta3=document.getElementById ('tres').value ;
+            let respuesta4=document.getElementById ('cuatro').value ;
+            let respuesta5=document.getElementById ('cinco').value ;
+            let fecha= new Date();
+            let hoy= fecha.toLocaleDateString("es-Es");
+            let hora= fecha.getHours();
+            let minutos= fecha.getMinutes();
+            let segundos= fecha.getSeconds();
+            alert(hoy +
+            "\n" + hora + ":"  + minutos + ":" + segundos + "\n" 
+            + " A) 5 peliculas, tu respuesta fue: " + respuesta1 
+            + "\n"
+            + " B) San Antonio Spurs, tu respuesta fue: " + respuesta2
+            + "\n"
+            + " C) 5 copas del mundo, tu respondiste: " + respuesta3 
+            + "\n"
+            + " D) 6 temporadas, tu respondiste: "  + respuesta4 
+            + "\n"
+            + " E) League Of Legends, tu respondiste: " + respuesta5);
+        }
+    </script>
+</body>
+</html>

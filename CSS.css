@@ -1,0 +1,42 @@
+html {
+    text-align: center;
+}
+body {
+    background-color:cadetblue
+}
+h2 {
+    color: red;
+    font-size: xx-large;
+    font-weight: bold;
+    border: solid;
+    background-color: crimson;
+
+    
+}
+
+.comenzar {
+    width: 150px;
+    height: 80px;
+    background-color: green;
+    font-size: x-large;
+    font-weight: bold;
+    border-radius: 50%;
+    color: white;
+}
+
+.reiniciar {
+    width: 150px;
+    height: 80px;
+    background-color: red;
+    font-size: x-large;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.enviar {
+    width: 50%;
+    height: 100px;
+    background-color: blue;
+    color:antiquewhite;
+    font-size: x-large;
+}
